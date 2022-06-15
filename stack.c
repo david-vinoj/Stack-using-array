@@ -22,30 +22,6 @@ int isempty()
 	}
 	else
 	{
-		return 0;#include<stdio.h>
-#include<stdlib.h>
-#define n 5
-int top=-1;
-int stack[n];
-int isfull()
-{
-	if(top==n-1)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-int isempty()
-{
-	if(top==-1)
-	{
-		return 1;
-	}
-	else
-	{
 		return 0;
 	}
 }
