@@ -1,108 +1,54 @@
 #include<stdio.h>
-#include<stdlib.h>
 #define n 5
-int top=-1;
-int stack[n];
-int isfull()
+int main()
 {
-	if(top==n-1)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-int isempty()
-{
-	if(top==-1)
-	{
-		return 1;
-	}
-	else
-	{
-		return 0;
-	}
-}
-void push(int val)
-{
-	if(isfull())
-	{
-		printf("Overflow");
-	}
-	else
-	{
-		top++;
-		stack[top]=val;
-		printf("\n%d Pushed",stack[top]);
-	}
-}
-void pop()
-{
-	if(isempty())
-	{
-		printf("Underflow");
-	}
-	else
-	{
-		printf("\n%d Popped",stack[top]);
-		stack[top]=-1;
-		top--;
-	}
-}
-void findtop()
-{
-	printf("\nTop position = %d",top);
-	printf("\nTop value= %d",stack[top]);
-}
-void display()
-{
-	int i,x;
-	x=top;
-	for(i=x;i>=0;i--)
-	{
-		printf("\n%d",stack[i]);
-	}
-}
-void main()
-{
-	while(1)
-	{		
-		printf("\n1.PUSH\n2.POP\n3.FIND THE TOP VALUE\n4.DISPLAY\n5.EXIT");
-		int ch;
-		printf("\nEnter your choice");
-		scanf("%d",&ch);
-		switch(ch)
-		{
-			case 1:
-			{
-				int v;
-				printf("Enter value to be pushed");
-				scanf("%d",&v);
-				push(v);
-				break;
-			}
-			case 2:
-			{
-				pop();
-				break;
-			}
-			case 3:
-			{
-				findtop();
-				break;
-			}
-			case 4:
-			{
-				display();
-				break;
-			}
-			case 5:
-			{
-				printf("\nEXITING");
-				exit(0);
-			}
-		}
-	}
+    int queue[n],ch=1,front=0,rear=0,i,j=1,x=n;
+    printf("Queue using Array");
+    printf("\n1.Insertion \n2.Deletion \n3.Display \n4.Exit");
+    while(ch)
+    {
+        printf("\nEnter the Choice:");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+        case 1:
+            if(rear==x)
+                printf("\n Queue is Full");
+            else
+            {
+                printf("\n Enter no %d:",j++);
+                scanf("%d",&queue[rear++]);
+            }
+            break;
+        case 2:
+            if(front==rear)
+            {
+                printf("\n Queue is empty");
+            }
+            else
+            {
+                printf("\n Deleted Element is %d",queue[front++]);
+                x++;
+            }
+            break;
+        case 3:
+            printf("\nQueue Elements are:\n ");
+            if(front==rear)
+                printf("\n Queue is Empty");
+            else
+            {
+                for(i=front; i<rear; i++)
+                {
+                    printf("%d",queue[i]);
+                    printf("\n");
+                }
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("Wrong Choice: please see the options");
+            }
+        }
+    }
+    return 0;
 }
